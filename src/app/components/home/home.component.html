@@ -1,0 +1,38 @@
+<form [formGroup]="formDetails" (ngSubmit)="onSubmit()" [ngClass]="language ? 'ltr' : 'rtl'">
+  <div class="form-group">
+    <label for="msg"
+      >{{ homeText.message[language] }}
+      <span style="font-size: 12px">{{
+        homeText.optional[language]
+      }}</span></label
+    >
+    <textarea name="msg" formControlName="message" id="msg"></textarea>
+  </div>
+  <div class="form-group" style="direction: ltr">
+    <label [ngStyle]="{ direction: !language ? 'rtl' : 'ltr' }" for="msg">{{
+      homeText.phoneNumber[language]
+    }}</label>
+    <select name="countries" id="countries" formControlName="country">
+      <option *ngFor="let item of counries" [value]="item.code_phone">
+        {{ item.code }} {{ item.code_phone }}
+      </option>
+    </select>
+    <input
+      inputmode="tel"
+      type="tel"
+      formControlName="phone"
+      name="phone-number"
+      id="phone-number"
+    />
+    <p
+      class="error"
+      [ngStyle]="{ textAlign: !language ? 'right' : 'left' }"
+      *ngIf="
+        !formDetails.get('phone').valid && formDetails.get('phone').touched
+      "
+    >
+      {{ homeText.errorPhoneNumber[language] }}
+    </p>
+  </div>
+  <button type="submit">{{ homeText.send[language] }}</button>
+</form>

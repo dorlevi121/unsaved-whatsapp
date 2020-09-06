@@ -1,0 +1,66 @@
+import { Component, OnInit } from '@angular/core';
+import { countries } from '../../../assets/CountryCodes.js'
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LanguageService } from 'src/app/_services/language.service';
+import * as texts from '../../../assets/all-texts';
+import { AnalyticsService } from 'src/app/_services/analytics.service.js';
+import { CookieService } from 'ngx-cookie-service';
+declare let ga: Function;
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
+})
+export class HomeComponent implements OnInit {
+  counries = [];
+  formDetails: FormGroup;
+  language: number;
+  homeText = texts;
+
+  constructor(private languageService: LanguageService, private analyticsService: AnalyticsService,
+    private cookieService: CookieService) {
+    for (let index = 0; index < countries.length; index++) {
+      this.counries[index] = {
+        "name": countries[index].name,
+        "code_phone": countries[index].dial_code,
+        "code": countries[index].code,
+        "image": 'https://www.countryflags.io/' + countries[index].code + '/shiny/32.png'
+      }
+    }
+  }
+
+  ngOnInit(): void {
+    const country = this.cookieService.get('country')
+    this.formDetails = new FormGroup({
+      'country': new FormControl(country ? country : '+972', Validators.required),
+      'phone': new FormControl(null, [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(9)]),
+      'message': new FormControl(null)
+    });
+    this.languageService.getLanguage().subscribe(lan => {
+      this.language = lan === 'heb' ? 0 : 1;
+    });
+  }
+
+  onSubmit() {
+    if (!this.formDetails.valid)
+      return;
+
+    const allNumberPhone = this.formDetails.value.country + this.formDetails.value.phone
+    let message = encodeURIComponent(this.formDetails.value.message)
+    if (message === 'null') {
+      window.open("https://wa.me/" + allNumberPhone.split(1));
+    }
+    else {
+      window.open("https://wa.me/" + allNumberPhone.split(1) + "?text=" + message);
+    }
+
+    this.cookieService.set('country', this.formDetails.value.country);
+    this.analyticsService.event('sendMessage', {
+      eventCategory: 'send',
+      eventValue: allNumberPhone,
+      message: message
+    })
+  }
+
+}
