@@ -17,7 +17,7 @@ import { LanguageService } from './_services/language.service';
     HeaderComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     ReactiveFormsModule
     ],
   providers: [
