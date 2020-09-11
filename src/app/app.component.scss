@@ -1,0 +1,12 @@
+@import '../assets/style/variable.scss';
+
+.wrapper {
+  background-color: $background-light;
+  position: relative;
+  left: 100%;
+  //top: 50%;
+
+  @media (max-width: 800px) {
+   left: 0;
+  }
+}

@@ -13,6 +13,7 @@ declare let ga: Function;
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  country;
   counries = [];
   formDetails: FormGroup;
   language: number;
@@ -31,9 +32,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const country = this.cookieService.get('country')
+    this.country = this.cookieService.get('country')
     this.formDetails = new FormGroup({
-      'country': new FormControl(country ? country : '+972', Validators.required),
+      'country': new FormControl(this.country ? this.country : '+972', Validators.required),
       'phone': new FormControl(null, [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(9)]),
       'message': new FormControl(null)
     });
@@ -45,8 +46,9 @@ export class HomeComponent implements OnInit {
   onSubmit() {
     if (!this.formDetails.valid)
       return;
+    const countryCode = this.counries.find(c => c.code === this.formDetails.value.country );
 
-    const allNumberPhone = this.formDetails.value.country + this.formDetails.value.phone
+    const allNumberPhone = countryCode.code_phone + this.formDetails.value.phone
     let message = encodeURIComponent(this.formDetails.value.message)
     if (message === 'null') {
       window.open("https://wa.me/" + allNumberPhone.split(1));
@@ -55,7 +57,7 @@ export class HomeComponent implements OnInit {
       window.open("https://wa.me/" + allNumberPhone.split(1) + "?text=" + message);
     }
 
-    this.cookieService.set('country', this.formDetails.value.country);
+    this.cookieService.set('country', countryCode);
     this.analyticsService.event('sendMessage', {
       eventCategory: 'send',
       eventValue: allNumberPhone,

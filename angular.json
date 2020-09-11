@@ -169,8 +169,17 @@
           "configurations": {
             "production": {}
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/unsaved-whatsapp/browser",
+            "netlifyToken": "",
+            "siteId": "4a0cf6dd-8e75-4d5c-905b-d26a9a12c1e6"
+          }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "unsaved-whatsapp"
 }

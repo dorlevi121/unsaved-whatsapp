@@ -2,7 +2,6 @@ import { Component, OnInit, Inject, PLATFORM_ID, Renderer2, ElementRef } from '@
 import { LanguageService } from './_services/language.service';
 import { AnalyticsService } from './_services/analytics.service'
 import { Meta, Title } from '@angular/platform-browser';
-import { isPlatformBrowser } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
 
 declare let ga: Function;
@@ -16,7 +15,7 @@ export class AppComponent implements OnInit {
   language;
   constructor(private languageService: LanguageService, private meta: Meta,
     private title: Title, private analyticsService: AnalyticsService, private cookieService: CookieService) {
-    analyticsService.init();
+  //  analyticsService.init();
   }
 
   ngOnInit(): void {

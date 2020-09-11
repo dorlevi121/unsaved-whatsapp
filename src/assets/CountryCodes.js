@@ -130,7 +130,7 @@ export const countries = [
     "code": "BT"
   },
   {
-    "name": "Bolivia, Plurinational State of",
+    "name": "Bolivia",
     "dial_code": "+591",
     "code": "BO"
   },
@@ -245,7 +245,7 @@ export const countries = [
     "code": "CG"
   },
   {
-    "name": "Congo, The Democratic Republic of the Congo",
+    "name": "Congo",
     "dial_code": "+243",
     "code": "CD"
   },
@@ -340,7 +340,7 @@ export const countries = [
     "code": "ET"
   },
   {
-    "name": "Falkland Islands (Malvinas)",
+    "name": "Falkland Islands(Malvinas)",
     "dial_code": "+500",
     "code": "FK"
   },
@@ -495,7 +495,7 @@ export const countries = [
     "code": "ID"
   },
   {
-    "name": "Iran, Islamic Republic of Persian Gulf",
+    "name": "Iran",
     "dial_code": "+98",
     "code": "IR"
   },
@@ -560,7 +560,7 @@ export const countries = [
     "code": "KI"
   },
   {
-    "name": "Korea, Democratic People's Republic of Korea",
+    "name": "Korea",
     "dial_code": "+850",
     "code": "KP"
   },
@@ -695,7 +695,7 @@ export const countries = [
     "code": "MX"
   },
   {
-    "name": "Micronesia, Federated States of Micronesia",
+    "name": "Micronesia",
     "dial_code": "+691",
     "code": "FM"
   },
@@ -825,7 +825,7 @@ export const countries = [
     "code": "PW"
   },
   {
-    "name": "Palestinian Territory, Occupied",
+    "name": "Palestinian Territory",
     "dial_code": "+970",
     "code": "PS"
   },
@@ -905,7 +905,7 @@ export const countries = [
     "code": "BL"
   },
   {
-    "name": "Saint Helena, Ascension and Tristan Da Cunha",
+    "name": "Saint Helena",
     "dial_code": "+290",
     "code": "SH"
   },
@@ -930,7 +930,7 @@ export const countries = [
     "code": "PM"
   },
   {
-    "name": "Saint Vincent and the Grenadines",
+    "name": "Saint Vincent",
     "dial_code": "+1784",
     "code": "VC"
   },
@@ -1010,7 +1010,7 @@ export const countries = [
     "code": "SS"
   },
   {
-    "name": "South Georgia and the South Sandwich Islands",
+    "name": "South Georgia",
     "dial_code": "+500",
     "code": "GS"
   },
@@ -1070,7 +1070,7 @@ export const countries = [
     "code": "TJ"
   },
   {
-    "name": "Tanzania, United Republic of Tanzania",
+    "name": "Tanzania",
     "dial_code": "+255",
     "code": "TZ"
   },
@@ -1170,7 +1170,7 @@ export const countries = [
     "code": "VU"
   },
   {
-    "name": "Venezuela, Bolivarian Republic of Venezuela",
+    "name": "Venezuela",
     "dial_code": "+58",
     "code": "VE"
   },

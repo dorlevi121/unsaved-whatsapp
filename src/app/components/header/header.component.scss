@@ -1,34 +1,62 @@
 @import "../../../assets/style/variable.scss";
 
-.background {
-  height: 150px;
-  width: 100%;
-  background-color: $color1;
+.wrapper {
+  background-color: $background-yellow;
+  width: 97%;
+  margin: auto;
+  position: relative;
+  top: 10px;
+  & .header {
+    text-align: center;
+    & .header-1 {
+      font-size: 2rem;
+    }
 
-  @media (min-width: 1000px) {
-    height: 200px;
+    & .header-2 {
+      font-size: 2rem;
+      padding-bottom: 20px;
+    }
+  }
+
+  & p {
+    margin: 0;
+
+    & .underline {
+      z-index: 2;
+      position: relative;
+
+      &::after {
+        // content: '';
+        // position: absolute;
+        // bottom: -0.125rem;
+        // left: -0.5rem;
+        // right: -0.5rem;
+        // height: 0.6rem;
+        // color: black;
+        // z-index: 2;
+        // background-image: url('/assets/images/underline.svg');
+        // background-repeat: no-repeat;
+        // background-size: cover;
+        content: '';
+        position: absolute;
+        width:100%;
+        height: 2.45em;
+        left: 0;
+        bottom: -0.6rem;
+        width: 100%;
+        height: 1rem;
+        z-index:-10;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-image: url('/assets/images/underline1.svg');
+      }
+    }
   }
 
   & .language {
-    margin: 0;
-    margin-bottom: 10px;
-    color: $color-text;
-    padding: 5px;
-    cursor: pointer;
-  }
 
-  & .header {
-    width: 100%;
-    margin: 0;
-    font-size: 1.5rem;
-    text-align: center;
-    color: $color-text;
-    font-weight: 400;
-
-    @media (min-width: 1000px) {
-      font-size: 2rem;
-      width: 30%;
-      margin: auto;
+    & span {
+      cursor: pointer;
     }
   }
 }

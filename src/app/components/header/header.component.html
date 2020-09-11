@@ -1,8 +1,13 @@
-<div class="background">
+<div class="wrapper">
   <p class="language">
     <span (click)="setLanguage('heb')">עברית</span>
     /
-    <span (click)="setLanguage('eng')">English</span>
+    <span (click)="setLanguage('eng')">English </span>
   </p>
-  <p class="header">{{ headerText.header[language] }}</p>
+  <div class="header">
+    <p class="header-1">{{ headerText.header1[language] }}</p>
+    <p class="header-2">
+      <span class="underline">{{ headerText.header2[language] }}</span>
+    </p>
+  </div>
 </div>
