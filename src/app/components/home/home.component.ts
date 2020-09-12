@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { countries } from '../../../assets/CountryCodes.js'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LanguageService } from 'src/app/_services/language.service';
 import * as texts from '../../../assets/all-texts';
 import { AnalyticsService } from 'src/app/_services/analytics.service.js';
 import { CookieService } from 'ngx-cookie-service';
+import { Subscription } from 'rxjs';
 declare let ga: Function;
 
 @Component({
@@ -12,13 +13,14 @@ declare let ga: Function;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   country;
   counries = [];
   formDetails: FormGroup;
   language: number;
   homeText = texts;
   isMobile: boolean = false;
+  $language: Subscription;
 
   constructor(private languageService: LanguageService, private analyticsService: AnalyticsService,
     private cookieService: CookieService) {
@@ -44,7 +46,7 @@ export class HomeComponent implements OnInit {
       this.isMobile = true;
     }
 
-    this.languageService.getLanguage().subscribe(lan => {
+    this.$language = this.languageService.getLanguage().subscribe(lan => {
       this.language = lan === 'heb' ? 0 : 1;
     });
   }
@@ -69,6 +71,10 @@ export class HomeComponent implements OnInit {
       eventValue: allNumberPhone,
       message: message
     })
+  }
+
+  ngOnDestroy(): void {
+    this.$language.unsubscribe();
   }
 
 }
