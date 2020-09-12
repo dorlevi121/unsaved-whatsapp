@@ -8,6 +8,14 @@
   top: 10px;
   & .header {
     text-align: center;
+
+    & .logo {
+      position: absolute;
+      left: -650px;
+      top: -70px;
+      width: 80px;
+      height: auto;
+    }
     & .header-1 {
       font-size: 2rem;
     }

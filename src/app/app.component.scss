@@ -26,10 +26,36 @@
   & .chat1 {
     left: 700px;
     top: 100px;
+    animation: fade-left 1s ease-in-out;
   }
 
   & .chat2 {
-    left: -600px;
+    left: -1200px;
     top: 132px;
+    opacity: 0;
+    animation: fade-right 1s forwards ease-in-out;
+  }
+}
+
+
+@keyframes fade-right {
+  from {
+    left: -1200px;
+    opacity: 0;
+  }
+  to {
+    left: -600px;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-left {
+  from {
+    left: 1200px;
+    opacity: 0;
+  }
+  to {
+    left: 700px;
+    opacity: 1;
   }
 }

@@ -19,7 +19,9 @@ import { CountryFlagDirective } from './_directives/country-flag.directive';
     CountryFlagDirective
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({
+      appId: 'unsaved-whatsapp'
+  }),
     ReactiveFormsModule
     ],
   providers: [

@@ -14,6 +14,23 @@ export function app(): express.Express {
   const distFolder = join(process.cwd(), 'dist/unsaved-whatsapp/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
+  const domino = require("domino");
+  const fs = require("fs");
+  const path = require("path");
+  const templateA = fs
+    .readFileSync(path.join("dist/unsaved-whatsapp/browser", "index.html"))
+    .toString();
+  const win = domino.createWindow(templateA);
+  win.Object = Object;
+  win.Math = Math;
+
+  global["window"] = win;
+  global["document"] = win.document;
+  global["branch"] = null;
+  global["object"] = win.object;
+  global['HTMLElement'] = win.HTMLElement;
+  global['navigator'] = win.navigator;
+
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
   server.engine('html', ngExpressEngine({
     bootstrap: AppServerModule,

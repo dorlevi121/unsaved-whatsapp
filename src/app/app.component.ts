@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
       { name: 'og:title', content: 'Sending whatsapp message to unsaved number | שליחת הודעת וואטסאפ למספר לא שמור' },
       { name: 'og:url', content: 'https://unsave.netlify.app/' },
       { name: 'og:description', content: 'Sending whatsapp message to unsaved number | שליחת הודעת וואטסאפ למספר לא שמור' },
-      { name: 'og:image', content: '/assets/images/chat2.svg' },
+      { name: 'og:image', content: '/assets/images/logo/logo-unsave-no-background.png' },
 
     ]);
     this.title.setTitle('Sending whatsapp message to unsaved number | שליחת הודעת וואטסאפ למספר לא שמור');
