@@ -11,6 +11,7 @@ import { LanguageService } from './_services/language.service';
 import { CountryFlagDirective } from './_directives/country-flag.directive';
 import { NgxGoogleAnalyticsModule } from 'ngx-google-analytics';
 import { environment } from 'src/environments/environment';
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,10 @@ import { environment } from 'src/environments/environment';
       appId: 'unsaved-whatsapp'
     }),
     NgxGoogleAnalyticsModule.forRoot(environment.analytics),
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-' + environment.adsense,
+      adSlot: 7259870550,
+    }),
     ReactiveFormsModule
   ],
   providers: [
