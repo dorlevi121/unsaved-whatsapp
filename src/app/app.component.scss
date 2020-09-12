@@ -7,17 +7,18 @@
   width: 100%;
   height: 100%;
 
-
   @media (max-width: 764px) {
     background: none;
+    height: auto;
     }
 
   & img {
     position: absolute;
     width: 300px;
     height: auto;
+
     @media (max-width: 764px) {
-      display: none;
+
     }
   }
 
@@ -25,12 +26,22 @@
     left:75%;
     top: 24.5%;
     animation: fade-left 1s ease-in-out;
+
+    @media (max-width: 764px) {
+      z-index: 2;
+      left: 0;
+      opacity: .1;
+      animation: fade-in 1s ease-in-out;
+    }
   }
 
   & .chat2 {
     left: 10%;
     top: 26.8%;
     animation: fade-right 1s ease-in-out;
+    @media (max-width: 764px) {
+      display: none;
+    }
   }
 }
 
@@ -71,5 +82,14 @@
   to {
     left: 10%;
     opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: .1;
   }
 }

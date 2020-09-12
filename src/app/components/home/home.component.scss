@@ -4,26 +4,36 @@
   background-color: $background-white;
   width: 97%;
   margin: auto;
+  z-index: 1;
 
-  // @media (max-width: 764px) {
-  //   height: 80vh;
-  // }
+  @media (max-width: 764px) {
+    width: 100%;
+  }
 
   & form {
     position: relative;
     left: 170px;
     padding-top: 20px;
     padding-bottom: 20px;
+    z-index: 3;
 
     @media (max-width: 764px) {
-      left: 50px;
+      width: 90%;
+      left: 0;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     & .form-group {
       margin-top: 20px;
 
       @media (max-width: 800px) {
-        margin-top: 40px;
+
+        &:not(:first-of-type) {
+          margin-top: 30px;
+        }
       }
 
       & label {
@@ -53,7 +63,7 @@
         font-size: 1rem;
         text-align: left;
 
-        @media (max-width: 800px) {
+        @media (max-width: 764px) {
           width: 250px;
         }
       }
@@ -67,12 +77,12 @@
         font-size: 1rem;
 
         @media (max-width: 800px) {
-          width: 255px;
+          width: 250px;
         }
 
         & option {
           font-size: 1rem;
-          background-color: rgba($color: $background-white, $alpha: .1);
+          background-color: rgba($color: $background-white, $alpha: 0.1);
         }
       }
     }
@@ -97,7 +107,7 @@
       box-shadow: 0 2px 0px darken($text-color, 0%);
       border-bottom: 2px solid darken($text-color, 3%);
 
-      @media (max-width: 800px) {
+      @media (max-width: 764px) {
         min-width: 250px;
         font-weight: 500;
       }
@@ -110,7 +120,7 @@
     margin-left: 5px;
 
     @media (max-width: 764px) {
-     // margin-bottom: 5px;
+      // margin-bottom: 5px;
     }
   }
 }

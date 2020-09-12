@@ -1,6 +1,6 @@
 <div class="home">
   <form
-    [ngStyle]="{ right: !language ? isMobile ? '50px' : '170px' : '0' }"
+    [ngStyle]="{ right: !language ? isMobile ? '0' : '170px' : '0' }"
     [formGroup]="formDetails"
     (ngSubmit)="onSubmit()"
     [ngClass]="language ? 'ltr' : 'rtl'"
