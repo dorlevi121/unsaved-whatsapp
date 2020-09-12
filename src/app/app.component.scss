@@ -9,7 +9,7 @@
 
   @media (max-width: 764px) {
     background: none;
-    height: auto;
+    height: 100vh;
     }
 
   & img {
@@ -30,7 +30,8 @@
     @media (max-width: 764px) {
       z-index: 2;
       left: 0;
-      opacity: .1;
+      top: 27%;
+      opacity: .07;
       animation: fade-in 1s ease-in-out;
     }
   }

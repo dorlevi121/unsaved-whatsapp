@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <p class="language">
+  <p class="language" [ngStyle]="{ paddingRight: !language  ?  '5px' : '0' }">
     <span (click)="setLanguage('heb')">עברית</span>
     /
     <span (click)="setLanguage('eng')">English </span>

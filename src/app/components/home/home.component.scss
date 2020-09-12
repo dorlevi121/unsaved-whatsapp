@@ -41,6 +41,9 @@
         text-transform: uppercase;
         color: $text-color;
         width: 70%;
+        @media (max-width: 764px) {
+          width: 90%;
+        }
       }
       & textArea {
         width: 290px;
