@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   language;
   constructor(private languageService: LanguageService, private meta: Meta,
     private title: Title, private analyticsService: AnalyticsService, private cookieService: CookieService) {
-    //  analyticsService.init();
+    //analyticsService.init();
   }
 
   ngOnInit(): void {

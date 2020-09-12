@@ -9,6 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LanguageService } from './_services/language.service';
 import { CountryFlagDirective } from './_directives/country-flag.directive';
+import { NgxGoogleAnalyticsModule } from 'ngx-google-analytics';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,10 @@ import { CountryFlagDirective } from './_directives/country-flag.directive';
   imports: [
     BrowserModule.withServerTransition({
       appId: 'unsaved-whatsapp'
-  }),
+    }),
+    NgxGoogleAnalyticsModule.forRoot(environment.analytics),
     ReactiveFormsModule
-    ],
+  ],
   providers: [
     LanguageService,
     CookieService

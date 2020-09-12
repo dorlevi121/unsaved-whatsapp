@@ -1,5 +1,20 @@
 export const countries = [
   {
+    "name": "Israel",
+    "dial_code": "+972",
+    "code": "IL"
+  },
+  {
+    "name": "United Kingdom",
+    "dial_code": "+44",
+    "code": "GB"
+  },
+  {
+    "name": "United States",
+    "dial_code": "+1",
+    "code": "US"
+  },
+  {
     "name": "Afghanistan",
     "dial_code": "+93",
     "code": "AF"
@@ -513,11 +528,6 @@ export const countries = [
     "name": "Isle of Man",
     "dial_code": "+44",
     "code": "IM"
-  },
-  {
-    "name": "Israel",
-    "dial_code": "+972",
-    "code": "IL"
   },
   {
     "name": "Italy",
@@ -1143,16 +1153,6 @@ export const countries = [
     "name": "United Arab Emirates",
     "dial_code": "+971",
     "code": "AE"
-  },
-  {
-    "name": "United Kingdom",
-    "dial_code": "+44",
-    "code": "GB"
-  },
-  {
-    "name": "United States",
-    "dial_code": "+1",
-    "code": "US"
   },
   {
     "name": "Uruguay",
