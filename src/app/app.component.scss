@@ -1,22 +1,20 @@
 @import "../assets/style/variable.scss";
 
-.wrapper {
-  background-color: $background-white;
-  position: relative;
-  left: 100%;
-  top: 50px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.background {
+  background-image: linear-gradient(to bottom, #edf2f4, #edf2f4 50%, #F50057 50%);
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+
 
   @media (max-width: 764px) {
-    left: 0;
-    top: 0;
-  }
+    background: none;
+    }
 
   & img {
     position: absolute;
-    width: 400px;
+    width: 300px;
     height: auto;
     @media (max-width: 764px) {
       display: none;
@@ -24,38 +22,54 @@
   }
 
   & .chat1 {
-    left: 700px;
-    top: 100px;
+    left:75%;
+    top: 24.5%;
     animation: fade-left 1s ease-in-out;
   }
 
   & .chat2 {
-    left: -1200px;
-    top: 132px;
-    opacity: 0;
-    animation: fade-right 1s forwards ease-in-out;
+    left: 10%;
+    top: 26.8%;
+    animation: fade-right 1s ease-in-out;
+  }
+}
+
+.wrapper {
+  background-color: $background-white;
+  position: relative;
+  left: 33%;
+  top: 50px;
+  width: 35vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+  @media (max-width: 764px) {
+    left: 0;
+    top: 0;
+    width: 100vw;
   }
 }
 
 
-@keyframes fade-right {
+@keyframes fade-left {
   from {
-    left: -1200px;
+    left: 2000px;
     opacity: 0;
   }
   to {
-    left: -600px;
+    left: 75%;
     opacity: 1;
   }
 }
 
-@keyframes fade-left {
+@keyframes fade-right {
   from {
-    left: 1200px;
+    left: -500px;
     opacity: 0;
   }
   to {
-    left: 700px;
+    left: 10%;
     opacity: 1;
   }
 }

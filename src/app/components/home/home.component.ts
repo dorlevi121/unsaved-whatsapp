@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
       window.open("https://wa.me/" + allNumberPhone.split(1) + "?text=" + message);
     }
 
-    this.cookieService.set('country', countryCode);
+    this.cookieService.set('country', this.formDetails.value.country);
     this.analyticsService.event('sendMessage', {
       eventCategory: 'send',
       eventValue: allNumberPhone,

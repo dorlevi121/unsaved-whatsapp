@@ -1,9 +1,9 @@
-<div class="wrapper" [ngStyle]="{ direction: language == 'heb' ? 'rtl' : 'ltr' }">
-  <app-header></app-header>
-  <app-home></app-home>
-  <app-footer></app-footer>
+<div class="background">
   <img class="chat1" src="/assets/images/chat.svg" alt="">
+  <div class="wrapper" [ngStyle]="{ direction: language == 'heb' ? 'rtl' : 'ltr' }">
+    <app-header></app-header>
+    <app-home></app-home>
+    <app-footer></app-footer>
+  </div>
   <img class="chat2" src="/assets/images/chat2.svg" alt="">
-
 </div>
-
