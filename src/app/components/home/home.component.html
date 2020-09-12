@@ -1,6 +1,6 @@
 <div class="home">
   <form
-    [ngStyle]="{ right: !language ? '13%' : '0' }"
+    [ngStyle]="{ right: !language ? isMobile ? '50px' : '170px' : '0' }"
     [formGroup]="formDetails"
     (ngSubmit)="onSubmit()"
     [ngClass]="language ? 'ltr' : 'rtl'"
@@ -59,7 +59,7 @@
     </div>
 
     <!-- Button -->
-    <button [ngStyle]="{ right: !language ? '100px' : '0' }" type="submit">
+    <button type="submit">
       {{ homeText.send[language] }}
     </button>
   </form>

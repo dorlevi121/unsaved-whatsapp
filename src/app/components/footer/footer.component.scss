@@ -1,13 +1,24 @@
 @import "../../../assets/style/variable.scss";
 
-
 .footer {
+  position: relative;
+  top: 1px;
+  width: 100.4%;
   text-align: center;
+  background-color: $background-red;
+  color: $background-white;
+  font-size: 0.9rem;
+
   & a {
-    color: black;
+    color: $background-white;
     text-decoration: none;
-    @media (max-width: 800px) {
-      margin-bottom: 10px;
+
+    @media (max-width: 764px) {
+      position: fixed;
+      left: 0;
+      top: 700px;
+      width: 100%;
+      //margin-bottom: 10px;
     }
   }
 }

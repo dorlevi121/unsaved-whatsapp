@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   formDetails: FormGroup;
   language: number;
   homeText = texts;
+  isMobile: boolean = false;
 
   constructor(private languageService: LanguageService, private analyticsService: AnalyticsService,
     private cookieService: CookieService) {
@@ -38,6 +39,11 @@ export class HomeComponent implements OnInit {
       'phone': new FormControl(null, [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(9)]),
       'message': new FormControl(null)
     });
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(navigator.userAgent)) {
+      this.isMobile = true;
+    }
+
     this.languageService.getLanguage().subscribe(lan => {
       this.language = lan === 'heb' ? 0 : 1;
     });
@@ -46,7 +52,7 @@ export class HomeComponent implements OnInit {
   onSubmit() {
     if (!this.formDetails.valid)
       return;
-    const countryCode = this.counries.find(c => c.code === this.formDetails.value.country );
+    const countryCode = this.counries.find(c => c.code === this.formDetails.value.country);
 
     const allNumberPhone = countryCode.code_phone + this.formDetails.value.phone
     let message = encodeURIComponent(this.formDetails.value.message)

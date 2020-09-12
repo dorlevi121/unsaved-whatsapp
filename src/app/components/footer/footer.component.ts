@@ -6,8 +6,15 @@ import { LanguageService } from 'src/app/_services/language.service';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
+  language: boolean = true;
 
-  constructor() { }
+  constructor(private languageService: LanguageService) { }
+
+  ngOnInit(): void {
+    this.languageService.getLanguage().subscribe(lan => {
+      this.language = lan === 'heb' ? false : true;
+    })
+  }
 
 }

@@ -7,16 +7,18 @@ body, html {
   box-sizing: border-box;
   width: 35vw;
 
-  @media (max-width: 800px) {
-    width: 100vw;
-    font-size: 14px;
+  @media (max-width: 764px) {
+    width: 100%;
+    //font-size: 14px;
   }
 }
 
 html {
-  background:rgba(0,0,0,.3);
+  background-image: linear-gradient(to bottom, #edf2f4, #edf2f4 50%, #F50057 50%);
+  background-attachment:fixed;
+  background-repeat: no-repeat;
 
-  @media (max-width: 800px) {
+  @media (max-width: 764px) {
    background: none;
    }
 

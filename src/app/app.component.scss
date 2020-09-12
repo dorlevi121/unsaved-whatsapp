@@ -1,12 +1,35 @@
-@import '../assets/style/variable.scss';
+@import "../assets/style/variable.scss";
 
 .wrapper {
-  background-color: $background-light;
+  background-color: $background-white;
   position: relative;
   left: 100%;
-  //top: 50%;
+  top: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 1px solid #ddd;
+  border-radius: 4px;
 
-  @media (max-width: 800px) {
-   left: 0;
+  @media (max-width: 764px) {
+    left: 0;
+    top: 0;
+  }
+
+  & img {
+    position: absolute;
+    width: 400px;
+    height: auto;
+    @media (max-width: 764px) {
+      display: none;
+    }
+  }
+
+  & .chat1 {
+    left: 700px;
+    top: 100px;
+  }
+
+  & .chat2 {
+    left: -600px;
+    top: 132px;
   }
 }

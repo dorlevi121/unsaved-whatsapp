@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   language;
   constructor(private languageService: LanguageService, private meta: Meta,
     private title: Title, private analyticsService: AnalyticsService, private cookieService: CookieService) {
-  //  analyticsService.init();
+    //  analyticsService.init();
   }
 
   ngOnInit(): void {
@@ -32,7 +32,12 @@ export class AppComponent implements OnInit {
       {
         name: 'keywords', content: 'WhatsApp, unsave whatsapp, sending whatsapp message to unsaved number, sending whatsapp to unsaved number, whatsapp to unsaved number, sending whatsapp, sending whatsapp to unsaved number, sending whatsapp message to unsaved number,' +
           'וואטסאפ, שליחת הודעת וואטסאפ למספר לא שמור, שליחת וואטסאפ למספר לא שמור, וואטסאפ למספר לא שמור, שליחת וואטסאפ, שליחת whatsapp למספר לא שמור, שליחת הודעת whatsapp למספר לא שמור'
-      }
+      },
+      { name: 'og:title', content: 'Sending whatsapp message to unsaved number | שליחת הודעת וואטסאפ למספר לא שמור' },
+      { name: 'og:url', content: 'https://unsave.netlify.app/' },
+      { name: 'og:description', content: 'Sending whatsapp message to unsaved number | שליחת הודעת וואטסאפ למספר לא שמור' },
+      { name: 'og:image', content: '/assets/images/chat2.svg' },
+
     ]);
     this.title.setTitle('Sending whatsapp message to unsaved number | שליחת הודעת וואטסאפ למספר לא שמור');
   }
