@@ -12,7 +12,7 @@
     "serve:ssr": "node dist/unsaved-whatsapp/server/main.js",
     "build:ssr": "ng build --prod && ng run unsaved-whatsapp:server:production",
     "prerender": "ng run unsaved-whatsapp:prerender",
-    "netlify-deploy": "NETLIFY_TOKEN=w1duk40eDnn8arw81vMqxGhbGYy5cRi2ornBHnJIfJ4 ng deploy"
+    "netlify-deploy": "NETLIFY_TOKEN=63e0eb93-a4cb-4df3-ba0d-848c20bece55 ng deploy"
   },
   "private": true,
   "dependencies": {
