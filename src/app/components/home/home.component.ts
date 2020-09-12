@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
 
     this.cookieService.set('country', this.formDetails.value.country);
     this.analyticsService.event('sendMessage', {
-      eventCategory: 'send',
+      eventCategory: 'click on send btn',
       eventValue: allNumberPhone,
       message: message
     })

@@ -9,7 +9,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LanguageService } from './_services/language.service';
 import { CountryFlagDirective } from './_directives/country-flag.directive';
-import { NgxGoogleAnalyticsModule } from 'ngx-google-analytics';
 import { environment } from 'src/environments/environment';
 import { AdsenseModule } from 'ng2-adsense';
 
@@ -25,7 +24,6 @@ import { AdsenseModule } from 'ng2-adsense';
     BrowserModule.withServerTransition({
       appId: 'unsaved-whatsapp'
     }),
-    NgxGoogleAnalyticsModule.forRoot(environment.analytics),
     AdsenseModule.forRoot({
       adClient: 'ca-pub-' + environment.adsense,
       adSlot: 7259870550,

@@ -28,7 +28,6 @@
     "express": "^4.15.2",
     "ng2-adsense": "^8.0.1",
     "ngx-cookie-service": "^10.0.1",
-    "ngx-google-analytics": "^9.0.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

@@ -1,23 +1,40 @@
 import { Injectable } from '@angular/core';
-import { GoogleAnalyticsService } from 'ngx-google-analytics';
-import { id } from '../../environments/analytics'
+import { environment } from 'src/environments/environment';
 
-declare var ga: Function;
+declare var gtag: Function;
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnalyticsService {
 
-  constructor(private $gaService: GoogleAnalyticsService) { }
+  constructor() { }
 
-  public event(eventName: string, params: any) {
-    this.$gaService.event(eventName, params.eventCategory, params.eventValue, params.message);
+  public event(eventName: string, params: {}) {
+    console.log(gtag('event', eventName, params));
+
   }
 
   public init() {
-    ga('set', 'page', 'home page');
-    ga('send', 'pageview');
+    try {
+
+      const script1 = document.createElement('script');
+      script1.async = true;
+      script1.src = 'https://www.googletagmanager.com/gtag/js?id=' + environment.analytics;
+      document.head.appendChild(script1);
+
+      const script2 = document.createElement('script');
+      script2.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '` + environment.analytics + `', {'send_page_view': false});
+      `;
+      document.head.appendChild(script2);
+    } catch (ex) {
+      console.error('Error appending google analytics');
+      console.error(ex);
+    }
   }
 
 }

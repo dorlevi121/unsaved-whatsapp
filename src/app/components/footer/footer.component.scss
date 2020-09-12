@@ -9,16 +9,12 @@
   color: $background-white;
   font-size: 0.9rem;
 
+  @media (max-width: 764px) {
+    width: 100%;
+   }
+
   & a {
     color: $background-white;
     text-decoration: none;
-
-    @media (max-width: 764px) {
-      position: fixed;
-      left: 0;
-      top: 700px;
-      width: 100%;
-      //margin-bottom: 10px;
-    }
   }
 }
