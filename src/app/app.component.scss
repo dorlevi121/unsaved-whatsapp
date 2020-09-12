@@ -9,17 +9,12 @@
 
   @media (max-width: 764px) {
     background: none;
-    height: 100vh;
     }
 
   & img {
     position: absolute;
     width: 300px;
     height: auto;
-
-    @media (max-width: 764px) {
-
-    }
   }
 
   & .chat1 {

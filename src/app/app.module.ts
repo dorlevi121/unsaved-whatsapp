@@ -9,8 +9,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LanguageService } from './_services/language.service';
 import { CountryFlagDirective } from './_directives/country-flag.directive';
-import { environment } from 'src/environments/environment';
-import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   declarations: [
@@ -23,10 +21,6 @@ import { AdsenseModule } from 'ng2-adsense';
   imports: [
     BrowserModule.withServerTransition({
       appId: 'unsaved-whatsapp'
-    }),
-    AdsenseModule.forRoot({
-      adClient: 'ca-pub-' + environment.adsense,
-      adSlot: 7259870550,
     }),
     ReactiveFormsModule
   ],

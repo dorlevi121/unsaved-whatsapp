@@ -26,7 +26,6 @@
     "@angular/router": "~10.0.11",
     "@nguniversal/express-engine": "^10.0.2",
     "express": "^4.15.2",
-    "ng2-adsense": "^8.0.1",
     "ngx-cookie-service": "^10.0.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
