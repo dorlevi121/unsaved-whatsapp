@@ -12,7 +12,6 @@ export class AnalyticsService {
   constructor(private $gaService: GoogleAnalyticsService) { }
 
   public event(eventName: string, params: any) {
-    console.log(ga('event', eventName, params));
     this.$gaService.event(eventName, params.eventCategory, params.eventValue, params.message);
   }
 
