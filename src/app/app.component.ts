@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
           'וואטסאפ, שליחת הודעת וואטסאפ למספר לא שמור, שליחת וואטסאפ למספר לא שמור, וואטסאפ למספר לא שמור, שליחת וואטסאפ, שליחת whatsapp למספר לא שמור, שליחת הודעת whatsapp למספר לא שמור'
       },
       { name: 'og:title', content: 'Sending whatsapp message to unsaved number | שליחת הודעת וואטסאפ למספר לא שמור' },
-      { name: 'og:url', content: 'www.unsave.net/' },
+      { name: 'og:url', content: 'https://www.unsave.net/' },
       { name: 'og:description', content: 'Sending whatsapp message to unsaved number | שליחת הודעת וואטסאפ למספר לא שמור' },
       { name: 'og:image', content: '/assets/images/logo/logo-unsave-no-background.png' },
 
