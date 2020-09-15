@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { countries } from '../../../assets/CountryCodes.js'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LanguageService } from 'src/app/_services/language.service';
@@ -6,7 +6,6 @@ import * as texts from '../../../assets/all-texts';
 import { AnalyticsService } from 'src/app/_services/analytics.service.js';
 import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
-declare let ga: Function;
 
 @Component({
   selector: 'app-home',
@@ -20,6 +19,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   language: number;
   homeText = texts;
   isMobile: boolean = false;
+
+  @ViewChild("link", { read: ElementRef }) link: ElementRef;
+
   $language: Subscription;
 
   constructor(private languageService: LanguageService, private analyticsService: AnalyticsService,
@@ -49,6 +51,26 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.$language = this.languageService.getLanguage().subscribe(lan => {
       this.language = lan === 'heb' ? 0 : 1;
     });
+
+    this.formDetails.valueChanges.subscribe(val => {
+
+      if (this.formDetails.valid) {
+        this.link.nativeElement.href = '';
+        const countryCode = this.counries.find(c => c.code === this.formDetails.value.country);
+
+        const allNumberPhone = countryCode.code_phone + this.formDetails.value.phone
+        let message = encodeURIComponent(this.formDetails.value.message)
+        if (message === 'null') {
+          this.link.nativeElement.href = "https://wa.me/" + allNumberPhone.split(1);
+        }
+        else {
+          this.link.nativeElement.href = "https://wa.me/" + allNumberPhone.split(1) + "?text=" + message;
+        }
+      }
+
+      console.log(this.link.nativeElement.href);
+
+    })
   }
 
   onSubmit() {

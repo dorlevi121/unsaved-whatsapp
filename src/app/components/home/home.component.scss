@@ -90,30 +90,31 @@
       }
     }
 
-    & button {
-      cursor: pointer;
-      display: inline-block;
-      padding: 15px;
-      margin-top: 20px;
-      height: 40px;
-      min-width: 300px;
-      background: $background-red;
-      border: none;
-      outline: none;
-      color: $background-white;
-      font-family: inherit;
-      font-weight: 400;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      border-radius: 3px;
-      box-shadow: 0 2px 0px darken($text-color, 0%);
-      border-bottom: 2px solid darken($text-color, 3%);
+  }
 
-      @media (max-width: 764px) {
-        min-width: 250px;
-        font-weight: 500;
-      }
+  & button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px;
+    margin-top: 20px;
+    height: 40px;
+    min-width: 300px;
+    background: $background-red;
+    border: none;
+    outline: none;
+    color: $background-white;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 3px;
+    box-shadow: 0 2px 0px darken($text-color, 0%);
+    border-bottom: 2px solid darken($text-color, 3%);
+
+    @media (max-width: 764px) {
+      min-width: 250px;
+      font-weight: 500;
     }
   }
 

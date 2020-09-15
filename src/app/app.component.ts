@@ -4,7 +4,6 @@ import { AnalyticsService } from './_services/analytics.service'
 import { Meta, Title } from '@angular/platform-browser';
 import { CookieService } from 'ngx-cookie-service';
 
-declare let ga: Function;
 
 @Component({
   selector: 'app-root',

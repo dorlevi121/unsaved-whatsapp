@@ -1,8 +1,7 @@
 <div class="home">
   <form
-    [ngStyle]="{ right: !language ? isMobile ? '0' : '170px' : '0' }"
+    [ngStyle]="{ right: !language ? (isMobile ? '0' : '170px') : '0' }"
     [formGroup]="formDetails"
-    (ngSubmit)="onSubmit()"
     [ngClass]="language ? 'ltr' : 'rtl'"
   >
     <!-- Country Code -->
@@ -59,11 +58,13 @@
     </div>
 
     <!-- Button -->
-    <button type="submit">
-      {{ homeText.send[language] }}
-    </button>
-  </form>
 
+  </form>
+    <a href="httpd://www.google.com" #link>
+      <button >
+        {{ homeText.send[language] }}
+      </button>
+    </a>
   <a
     [ngStyle]="{ marginRight: !language ? '5px' : '0' }"
     href="mailto:dorlevy121@gmail.com"

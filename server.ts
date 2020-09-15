@@ -21,8 +21,7 @@ export function app(): express.Express {
     .readFileSync(path.join("dist/unsaved-whatsapp/browser", "index.html"))
     .toString();
   const win = domino.createWindow(templateA);
-  win.Object = Object;
-  win.Math = Math;
+
 
   global["window"] = win;
   global["document"] = win.document;
