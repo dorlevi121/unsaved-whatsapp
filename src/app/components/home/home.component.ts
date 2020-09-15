@@ -58,13 +58,15 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.link.nativeElement.href = '';
         const countryCode = this.counries.find(c => c.code === this.formDetails.value.country);
 
-        const allNumberPhone = countryCode.code_phone + this.formDetails.value.phone
+        const allNumberPhone = countryCode.code_phone + this.formDetails.value.phone;
+        allNumberPhone.match(/\d/g).join("");
+
         let message = encodeURIComponent(this.formDetails.value.message)
         if (message === 'null') {
-          this.link.nativeElement.href = "https://wa.me/" + allNumberPhone.split(1);
+          this.link.nativeElement.href = "https://wa.me/" + allNumberPhone;
         }
         else {
-          this.link.nativeElement.href = "https://wa.me/" + allNumberPhone.split(1) + "?text=" + message;
+          this.link.nativeElement.href = "https://wa.me/" + allNumberPhone+ "?text=" + message;
         }
       }
 
