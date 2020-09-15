@@ -3,7 +3,9 @@
 .home {
   background-color: $background-white;
   width: 97%;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 1;
 
   @media (max-width: 764px) {
@@ -12,25 +14,21 @@
 
   & form {
     position: relative;
-    left: 170px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 3;
 
     @media (max-width: 764px) {
       width: 90%;
       left: 0;
       margin: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
     & .form-group {
       margin-top: 20px;
 
       @media (max-width: 800px) {
-
         &:not(:first-of-type) {
           margin-top: 30px;
         }
@@ -89,7 +87,6 @@
         }
       }
     }
-
   }
 
   & button {
@@ -118,10 +115,11 @@
     }
   }
 
-  & a {
+  & .issues {
     color: $text-color;
     font-size: 0.8rem;
     margin-left: 5px;
+    align-self: flex-end;
 
     @media (max-width: 764px) {
       // margin-bottom: 5px;

@@ -1,6 +1,5 @@
 <div class="home">
   <form
-    [ngStyle]="{ right: !language ? (isMobile ? '0' : '170px') : '0' }"
     [formGroup]="formDetails"
     [ngClass]="language ? 'ltr' : 'rtl'"
   >
@@ -56,16 +55,17 @@
       >
       <textarea name="msg" formControlName="message" id="msg"></textarea>
     </div>
-
-    <!-- Button -->
-
   </form>
-    <a href="" target="_blank" #link>
-      <button >
-        {{ homeText.send[language] }}
-      </button>
-    </a>
+
+  <!-- Button -->
+  <a href="" target="_blank" #link>
+    <button>
+      {{ homeText.send[language] }}
+    </button>
+  </a>
+
   <a
+  class="issues"
     [ngStyle]="{ marginRight: !language ? '5px' : '0' }"
     href="mailto:dorlevy121@gmail.com"
     >{{ homeText.issues[language] }}</a
