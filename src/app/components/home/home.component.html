@@ -1,8 +1,5 @@
 <div class="home">
-  <form
-    [formGroup]="formDetails"
-    [ngClass]="language ? 'ltr' : 'rtl'"
-  >
+  <form [formGroup]="formDetails" [ngClass]="language ? 'ltr' : 'rtl'">
     <!-- Country Code -->
     <div class="form-group">
       <label for="countries"> {{ homeText.country[language] }}:</label>
@@ -58,14 +55,14 @@
   </form>
 
   <!-- Button -->
-  <a href="" target="_blank" #link>
+  <a href="" target="_blank" (click)="onSubmit()" #link>
     <button>
       {{ homeText.send[language] }}
     </button>
   </a>
 
   <a
-  class="issues"
+    class="issues"
     [ngStyle]="{ marginRight: !language ? '5px' : '0' }"
     href="mailto:dorlevy121@gmail.com"
     >{{ homeText.issues[language] }}</a

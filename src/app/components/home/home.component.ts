@@ -76,16 +76,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   onSubmit() {
     if (!this.formDetails.valid)
       return;
+
     const countryCode = this.counries.find(c => c.code === this.formDetails.value.country);
 
     const allNumberPhone = countryCode.code_phone + this.formDetails.value.phone
     let message = encodeURIComponent(this.formDetails.value.message)
-    if (message === 'null') {
-      window.open("https://wa.me/" + allNumberPhone.split(1));
-    }
-    else {
-      window.open("https://wa.me/" + allNumberPhone.split(1) + "?text=" + message);
-    }
+    // if (message === 'null') {
+    //   window.open("https://wa.me/" + allNumberPhone.split(1));
+    // }
+    // else {
+    //   window.open("https://wa.me/" + allNumberPhone.split(1) + "?text=" + message);
+    // }
 
     this.cookieService.set('country', this.formDetails.value.country);
     this.analyticsService.event('sendMessage', {
