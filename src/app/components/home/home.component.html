@@ -55,7 +55,11 @@
   </form>
 
   <!-- Button -->
-  <a href="javascript:void(0);" (click)="onSubmit()" #link>
+  <a
+    [href]="hrefLink ? hrefLink : 'javascript:void(0);'"
+    (click)="onSubmit()"
+    #link
+  >
     <button>
       {{ homeText.send[language] }}
     </button>

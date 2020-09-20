@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.formDetails.valueChanges.subscribe(val => {
 
       if (this.formDetails.valid && this.formDetails.value.phone.length > 9) {
-        this.link.nativeElement.href = '';
+       // this.link.nativeElement.href = '';
         const countryCode = this.counries.find(c => c.code === this.formDetails.value.country);
 
         const allNumberPhone = countryCode.code_phone + this.formDetails.value.phone;
@@ -64,19 +64,19 @@ export class HomeComponent implements OnInit, OnDestroy {
 
         let message = encodeURIComponent(this.formDetails.value.message)
         if (message === 'null') {
-          this.link.nativeElement.href = "https://wa.me/" + allNumberPhone;
+          //this.link.nativeElement.href = "https://wa.me/" + allNumberPhone;
           this.link.nativeElement.target = "_blank"
           this.hrefLink = "https://wa.me/" + allNumberPhone;
         }
         else {
-          this.link.nativeElement.href = "https://wa.me/" + allNumberPhone + "?text=" + message;
+         // this.link.nativeElement.href = "https://wa.me/" + allNumberPhone + "?text=" + message;
           this.link.nativeElement.target = "_blank"
           this.hrefLink = "https://wa.me/" + allNumberPhone + "?text=" + message;
         }
       }
       else {
-        this.link.nativeElement.href = "javascript:void(0);"
-        this.link.nativeElement.target = ""
+       // this.link.nativeElement.href = "javascript:void(0);"
+        //this.link.nativeElement.target = ""
       }
 
       console.log(this.link.nativeElement.href);
