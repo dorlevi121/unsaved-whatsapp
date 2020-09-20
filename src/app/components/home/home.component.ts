@@ -64,11 +64,11 @@ export class HomeComponent implements OnInit, OnDestroy {
         let message = encodeURIComponent(this.formDetails.value.message)
         if (message === 'null') {
           this.link.nativeElement.href = "https://wa.me/" + allNumberPhone;
-          this.link.nativeElement.target = "_blank"
+          //this.link.nativeElement.target = "_blank"
         }
         else {
           this.link.nativeElement.href = "https://wa.me/" + allNumberPhone + "?text=" + message;
-          this.link.nativeElement.target = "_blank"
+          //this.link.nativeElement.target = "_blank"
         }
       }
       else {
