@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   language: number;
   homeText = texts;
   isMobile: boolean = false;
+  hrefLink: string;
 
   @ViewChild("link", { read: ElementRef }) link: ElementRef;
 
@@ -64,11 +65,13 @@ export class HomeComponent implements OnInit, OnDestroy {
         let message = encodeURIComponent(this.formDetails.value.message)
         if (message === 'null') {
           this.link.nativeElement.href = "https://wa.me/" + allNumberPhone;
-          //this.link.nativeElement.target = "_blank"
+          this.link.nativeElement.target = "_blank"
+          this.hrefLink = "https://wa.me/" + allNumberPhone;
         }
         else {
           this.link.nativeElement.href = "https://wa.me/" + allNumberPhone + "?text=" + message;
-          //this.link.nativeElement.target = "_blank"
+          this.link.nativeElement.target = "_blank"
+          this.hrefLink = "https://wa.me/" + allNumberPhone + "?text=" + message;
         }
       }
       else {
