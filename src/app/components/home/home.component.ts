@@ -4,8 +4,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LanguageService } from 'src/app/_services/language.service';
 import * as texts from '../../../assets/all-texts';
 import { AnalyticsService } from 'src/app/_services/analytics.service.js';
-import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
+import { CountryService } from 'src/app/_services/country.service.js';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  country;
+  country: string;
   counries = [];
   formDetails: FormGroup;
   language: number;
@@ -24,9 +24,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild("link", { read: ElementRef }) link: ElementRef;
 
   $language: Subscription;
+  $countrySubscriber: Subscription;
 
   constructor(private languageService: LanguageService, private analyticsService: AnalyticsService,
-    private cookieService: CookieService) {
+    private countryService: CountryService) {
     for (let index = 0; index < countries.length; index++) {
       this.counries[index] = {
         "name": countries[index].name,
@@ -38,7 +39,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.country = this.cookieService.get('country')
+    this.$countrySubscriber = this.countryService.countrySubject.subscribe(country => {
+      this.country = country;
+    })
+    this.countryService.setCountry();
+
     this.formDetails = new FormGroup({
       'country': new FormControl(this.country ? this.country : '+972', Validators.required),
       'phone': new FormControl(null, [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(9)]),
@@ -72,7 +77,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         }
       }
       else {
-       // this.link.nativeElement.href = "javascript:void(0);"
+        // this.link.nativeElement.href = "javascript:void(0);"
         //this.link.nativeElement.target = ""
       }
     })
@@ -86,14 +91,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     const allNumberPhone = countryCode.code_phone + this.formDetails.value.phone
     let message = encodeURIComponent(this.formDetails.value.message)
-    // if (message === 'null') {
-    //   window.open("https://wa.me/" + allNumberPhone.split(1));
-    // }
-    // else {
-    //   window.open("https://wa.me/" + allNumberPhone.split(1) + "?text=" + message);
-    // }
 
-    this.cookieService.set('country', this.formDetails.value.country);
+    this.countryService.setCookiesCountry(this.formDetails.value.country);
     this.analyticsService.event('sendMessage', {
       eventCategory: 'click on send btn',
       eventValue: allNumberPhone,
@@ -103,6 +102,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.$language.unsubscribe();
+    this.$countrySubscriber.unsubscribe();
   }
 
 }
