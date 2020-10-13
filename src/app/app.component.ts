@@ -39,8 +39,8 @@ export class AppComponent implements OnInit, OnDestroy {
       { name: 'og:title', content: 'Sending whatsapp message to unsaved number | שליחת הודעת וואטסאפ למספר לא שמור' },
       { name: 'og:url', content: 'https://www.unsave.net/' },
       { name: 'og:description', content: 'Sending whatsapp message to unsaved number | שליחת הודעת וואטסאפ למספר לא שמור' },
-      { name: 'og:image', content: '/assets/images/logo/logo-unsave.jpg' },
-
+      { name: 'og:image', content: 'https://i.ibb.co/PWbWwmj/logo-unsave-no-background.png' },
+      { name: 'og:image"url', content: 'https://i.ibb.co/PWbWwmj/logo-unsave-no-background.png' },
     ]);
     this.title.setTitle('Sending whatsapp message to unsaved number | שליחת הודעת וואטסאפ למספר לא שמור');
   }
