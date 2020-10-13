@@ -41,12 +41,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.$countrySubscriber = this.countryService.countrySubject.subscribe(country => {
       this.country = country;
+      this.formDetails.get('country').setValue(this.country ? this.country : '+972')
     })
     this.countryService.setCountry();
 
+    const regexPhoneValidator = '^[0-9]+$';
     this.formDetails = new FormGroup({
       'country': new FormControl(this.country ? this.country : '+972', Validators.required),
-      'phone': new FormControl(null, [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(9)]),
+      'phone': new FormControl(null, [Validators.required, Validators.pattern(regexPhoneValidator), Validators.min(9)]),
       'message': new FormControl(null)
     });
 
@@ -60,7 +62,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.formDetails.valueChanges.subscribe(val => {
 
-      if (this.formDetails.valid && this.formDetails.value.phone.length > 9) {
+      if (this.formDetails.valid && this.formDetails.value.phone.length > 8) {
         const countryCode = this.counries.find(c => c.code === this.formDetails.value.country);
 
         const allNumberPhone = countryCode.code_phone + this.formDetails.value.phone;

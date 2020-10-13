@@ -20,7 +20,7 @@ export class CountryService {
       this.countrySubject.next(this.country);
     }
     else {
-      this.http.get(')https://ipinfo.io?token=c7c08455aec30f').toPromise()
+      this.http.get('https://ipinfo.io?token=c7c08455aec30f').toPromise()
         .then((data: any) => {
           this.country = data.country;
           this.countrySubject.next(this.country);

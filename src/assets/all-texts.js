@@ -5,6 +5,6 @@ export const message = ["הודעה", "Message"]
 export const optional = ["אופציונאלי", "Optional"]
 export const phoneNumber = ["מספר טלפון", "Phone Number"]
 export const send = ["שלח", "Send"]
-export const errorPhoneNumber = ["מספר טלפון לא תקין", "Invalid phone number"];
+export const errorPhoneNumber = ["מספר טלפון יכול להכיל רק מספרים", "Phone can only contain numbers"];
 export const issues = ["דווח על תקלה", "Report issues"];
 
