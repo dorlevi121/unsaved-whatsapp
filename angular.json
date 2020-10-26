@@ -181,5 +181,8 @@
       }
     }
   },
-  "defaultProject": "unsaved-whatsapp"
+  "defaultProject": "unsaved-whatsapp",
+  "cli": {
+    "analytics": false
+  }
 }

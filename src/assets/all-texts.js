@@ -1,4 +1,4 @@
-export const header1 = ["הודעת וואטסאפ", "WhatsApp Message"];
+export const header1 = ["שליחת הודעת וואטסאפ", "WhatsApp Message"];
 export const header2 = ["למספר לא שמור", "To Unsaved Number"];
 export const country = ["בחר/י מדינה", "SELECT RECIPIENT COUNTRY"]
 export const message = ["הודעה", "Message"]

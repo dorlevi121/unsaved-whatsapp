@@ -2,18 +2,9 @@
   <form [formGroup]="formDetails" [ngClass]="language ? 'ltr' : 'rtl'">
     <!-- Country Code -->
     <div class="form-group">
-      <label for="countries"> {{ homeText.country[language] }}:</label>
-      <select
-        appCountryFlags
-        name="countries"
-        id="countries"
-        formControlName="country"
-      >
-        <option
-          [selected]="country == item.code_phone"
-          *ngFor="let item of counries"
-          [value]="item.code"
-        >
+      <label [ngStyle]="{ direction: !language ? 'rtl' : 'ltr' }" for="countries"> {{ homeText.country[language] }}:</label>
+      <select appCountryFlags name="countries" id="countries" formControlName="country">
+        <option [selected]="country == item.code_phone" *ngFor="let item of counries" [value]="item.code">
           {{ item.name }} {{ item.code_phone }}
         </option>
       </select>
@@ -21,54 +12,33 @@
 
     <!-- Phone Number -->
     <div class="form-group">
-      <label [ngStyle]="{ direction: !language ? 'rtl' : 'ltr' }" for="msg"
-        >{{ homeText.phoneNumber[language] }}:</label
-      >
-      <input
-        inputmode="tel"
-        type="tel"
-        formControlName="phone"
-        name="phone-number"
-        id="phone-number"
-      />
-      <p
-        class="error"
-        [ngStyle]="{ textAlign: !language ? 'right' : 'left' }"
-        *ngIf="
+      <label [ngStyle]="{ direction: !language ? 'rtl' : 'ltr' }"
+        for="msg">{{ homeText.phoneNumber[language] }}:</label>
+      <input inputmode="tel" type="tel" formControlName="phone" name="phone-number" id="phone-number" />
+      <p class="error" [ngStyle]="{ textAlign: !language ? 'right' : 'left' }" *ngIf="
           !formDetails.get('phone').valid && formDetails.get('phone').touched
-        "
-      >
+        ">
         {{ homeText.errorPhoneNumber[language] }}
       </p>
     </div>
 
     <!-- Message -->
     <div class="form-group">
-      <label for="msg"
-        >{{ homeText.message[language] }}:
+      <label for="msg" [ngStyle]="{ direction: !language ? 'rtl' : 'ltr' }">{{ homeText.message[language] }}:
         <span style="font-size: 12px">{{
           homeText.optional[language]
-        }}</span></label
-      >
-      <textarea name="msg" formControlName="message" id="msg"></textarea>
+        }}</span></label>
+      <textarea [ngStyle]="{ direction: !language ? 'rtl' : 'ltr' }" name="msg" formControlName="message" id="msg"></textarea>
     </div>
   </form>
 
   <!-- Button -->
-  <a
-    [href]="hrefLink ? hrefLink : 'javascript:void(0);'"
-    (click)="onSubmit()"
-    #link
-  >
+  <a [href]="hrefLink ? hrefLink : 'javascript:void(0);'" (click)="onSubmit()" #link>
     <button>
       {{ homeText.send[language] }}
     </button>
   </a>
 
-  <a
-    class="issues"
-    [ngStyle]="{ marginRight: !language ? '5px' : '0' }"
-    href="mailto:dorlevy121@gmail.com"
-    >{{ homeText.issues[language] }}</a
-  >
+  <a class="issues" [ngStyle]="{ marginRight: !language ? '5px' : '0' }"
+    href="mailto:dorlevy121@gmail.com">{{ homeText.issues[language] }}</a>
 </div>
